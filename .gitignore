@@ -1,0 +1,37 @@
+# Secrets
+.env
+*.json.key
+secrets/
+gcp-key*.json
+service-account*.json
+
+# Data (large / re-downloadable)
+data/raw/*
+!data/raw/.gitkeep
+*.parquet
+*.csv
+!dbt/seeds/*.csv
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+
+# dbt
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+
+# Airflow
+airflow/logs/
+airflow/plugins/
+airflow/airflow.cfg
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

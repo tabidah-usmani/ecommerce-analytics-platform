@@ -1,0 +1,22 @@
+# Skeleton compose file. Services are added phase by phase:
+#   Phase 3: Airflow (webserver, scheduler, metadata Postgres) and Redpanda.
+# MySQL is your existing local instance; containers reach it via host.docker.internal.
+
+name: ecommerce-analytics
+
+services:
+  # Placeholder so `docker compose config` validates. Replaced in Phase 3.
+  postgres-airflow:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - airflow-db:/var/lib/postgresql/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    profiles: ["airflow"]
+
+volumes:
+  airflow-db:
